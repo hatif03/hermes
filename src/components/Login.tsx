@@ -1,14 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Input from './Input'
+import Button from './Button'
 
 const Login = () => {
+
+    const [login, setLogin] = useState(true)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+
   return (
     <div className=' w-full md:w-[450px]'>
-        <h1 className=' text-yellow-500 text-center font-bold text-4xl md:text-6xl mb-10'>Login</h1>
+        <h1 className=' text-white text-center font-bold text-4xl md:text-6xl mb-10'>{login? "Login": "Register"}</h1>
         <div className=' bg-white p-6 min-h-[150px] flex flex-col gap-3 w-full rounded-2xl drop-shadow-xl'>
-            <Input name='name' type='name'/>
-            <Input name='password' type='password'/>
-            <Input name='confirm-password' type='password'/>
+            <Input name='name' type='name' value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <Input name='password' type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+            {!login && <Input name='confirm-password' type='password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>}
+            {login? (
+                <>
+                    <Button text='Login'/>
+                    <Button onClick={() => setLogin(false)} text='Register' secondary/>
+                </>
+            ):(
+                <>
+                    <Button text='Register'/>
+                    <Button onClick={() => setLogin(true)} text='Login' secondary/>
+                </>
+            )
+            }
         </div>
     </div>
   )
