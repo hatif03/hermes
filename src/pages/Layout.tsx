@@ -8,7 +8,7 @@ const Layout = (props: Props) => {
   return (
     <div className=' h-screen flex flex-col'>
         <Header/>
-        <div className=' bg-pattern h-full'>
+        <div className=' bg-myBlack h-full'>
           <Outlet/>
         </div>
     </div>

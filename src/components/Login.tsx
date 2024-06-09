@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
 import Input from './Input'
 import Button from './Button'
+import { signup } from '../Backend/Queries';
 
 const Login = () => {
 
-    const [login, setLogin] = useState(true)
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
+    const [login, setLogin] = useState(true);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+    const handleSignup = () => {
+        const data = {email, password, confirmPassword};
+        signup(data)
+    };
 
   return (
     <div className=' w-full md:w-[450px]'>
@@ -23,7 +29,7 @@ const Login = () => {
                 </>
             ):(
                 <>
-                    <Button text='Register'/>
+                    <Button text='Register' onClick={() => handleSignup()}/>
                     <Button onClick={() => setLogin(true)} text='Login' secondary/>
                 </>
             )

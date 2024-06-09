@@ -9,6 +9,11 @@ export default {
       colors:{
         myBlue: '#0A32B3',
         myPink: '#BD365D',
+        myBlack: '#000000',
+        myWhite: '#ffffff',
+        gray1: '#bfbfbf',
+        gray2: '#7f7f7f',
+        gray3: '#404040',
       },
       backgroundImage: (theme) => ({
         pattern: 'url("https://img.freepik.com/free-vector/topographic-contour-lines-map-seamless-pattern_1284-52862.jpg?w=740&t=st=1704868608~exp=1704869208~hmac=61afdd3a60ad0db613c5ca90203933ba3c9ab248a981b82dd5177be53d650f51")'
